@@ -1,0 +1,49 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+
+    <title>Night</title>
+        <style>
+        body {
+            background-image: url({% static 'images/whitewerewolf.jpg' %});
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+<div class="item-votes">
+{% if witch %}
+            <form action = "{% url 'werewolves:witch_skill' %}" method="post" >
+    {% else %}
+    <form action = "{% url 'werewolves:day' %}" method="post" >
+{% endif %}
+                {% csrf_token %}
+
+                <div style="vertical-align: center" class="form-control">
+                    <h1 class="t" style="margin: auto">
+                        White Werewolf may choose a victim
+                    </h1>
+
+                    <select class="custom-select" name = "victim">
+                        <option value="" selected disabled hidden>None</option>
+                        {% for player in players %}
+                                {% if player.role == "werewolf" %}
+                        <option style="font-weight: bold" value = "{{ player.id }}">{{ player.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="item-boton">
+                    <button class="boton" type="submit">Verify</button>
+                </div>
+
+            </form>
+        </div>
+
+        </div>
+{% endblock %}

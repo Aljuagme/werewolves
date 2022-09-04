@@ -1,0 +1,66 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+
+    <title>Night</title>
+        <style>
+        body {
+            background-image: url({% static 'images/seer.jpg' %});
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+
+        }
+        li {
+            color: white;
+            font-size: 30px;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="item-votes">
+        <form action = "{% url 'werewolves:sleep_1' %}" method="post" >
+            {% csrf_token %}
+
+            <div style="vertical-align: center" class="form-control">
+                <h1 class="t" style="margin: auto">
+                    Reveal identity
+                </h1>
+
+                <select class="custom-select" name = "reveal">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    {% for player in players %}
+                            <option style="font-weight: bold" value = "{{ player.id }}">{{ player.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div style="text-align: left ">
+            {% if saw %}
+                <ul>
+                        {% filter upper %}
+                            {% if saw.role == "werewolf" or saw.role == "whitewerewolf" %}
+                            <li style="color: red">{{ saw.name }} --> "WEREWOLF"</li>
+                            {% else %}
+                            <li>{{ saw.name }} --> "VILLAGER"</li>
+                            {% endif %}
+                        {% endfilter %}
+                </ul>
+            {% endif %}
+            </div>
+            <div class="item-boton" style="background-attachment: fixed">
+                <button class="boton-seer" type="submit">Verify</button>
+            </div>
+        </form>
+    </div>
+
+        <div class="item-boton-night">
+                <form method="get" action="{% url 'werewolves:werewolves_skill' %}">
+                    <button class="boton-night2">Werewolves</button>
+                </form>
+        </div>
+
+{% endblock %}

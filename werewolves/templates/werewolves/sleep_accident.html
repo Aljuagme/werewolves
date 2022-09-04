@@ -1,0 +1,14 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="t" style="position: absolute; bottom: 48%; left: 31%">
+        <h1 style="font-size: 60px">{{ victim.name }} has died in a terrible accident </h1>
+    </div>
+
+    <div class="item-boton-night">
+                <form method="get" action="{% url 'werewolves:werewolves_skill' %}">
+                    <button class="boton-night2">Werewolves</button>
+                </form>
+        </div>
+{% endblock %}

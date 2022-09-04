@@ -1,0 +1,31 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+
+    <title>Welcome</title>
+    <link href="{% static 'werewolves/index.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="grid-container-index">
+
+            <div class="item-title-forest">
+            <h2 class="title-forest">
+                THE WEREWOLVES OF MILLER'S HOLLOW
+            </h2>
+        </div>
+        <a class="item-forest" href="{% url 'werewolves:setup' %}">
+            <div>
+                <img alt="Forest" class="forest" src="{% static 'images/dark_forest.png' %}">
+             </div>
+        </a>
+
+    <div class="item-sentence">
+        <p style="color: white; font-size: 28px"><i>Enter the forest...</i></p>
+    </div>
+    </div>
+
+{% endblock %}

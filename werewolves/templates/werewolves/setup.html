@@ -1,0 +1,52 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+<!--Block for linking the css-->
+    <link href="{% static 'werewolves/setup.css' %}" rel="stylesheet">
+    <script src="{% static 'JS/setup.js' %}"></script>
+{% endblock %}
+
+
+{% block body %}
+    <div>
+    <h1 style="margin-left: 9%">SETUP: 5-20 PLAYERS</h1>
+        <form style="margin-top: 3%" action = "" method="post">
+            {% csrf_token %}
+            <ul class = "player_list">
+                <ol id="players">
+                    {% if players|length > 0 %}
+                        {% for player in players %}
+                        <li>
+                            <input type="text" value ="{{ player }}" name = "players"><input type="button" value = "X" class="remove_player_button" onclick="removePlayerListElement(this)">
+                        </li>
+                    {% endfor %}
+                    {% else %}
+                        {% for i in min_players %}
+{#                        List item containing a input text field and a button #}
+                        <li>
+                            <input type="text" placeholder="Add player.." name = "players"><input type="button" value="X" class="remove_player_button" onclick="removePlayerListElement(this)">
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+                </ol>
+
+                <li><input type="button" value="+" class="add_player_button" onclick="addPlayerListElement()"></li>
+            </ul>
+        <div>
+            <br>
+            <div class ="load_start_buttons">
+                <button form="load_player_form" class = "load_players_button">Load recent players</button>
+                <input type="submit" name = "finish_setup_button" value="Start Setup Night" class ="submit_button">
+            </div>
+
+        </div>
+        </form>
+        <form id = "load_player_form" action = "" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="load_players">
+        </form>
+
+    </div>
+
+{% endblock %}

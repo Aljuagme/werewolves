@@ -1,0 +1,260 @@
+
+li {
+    color: white;
+    font-size: 30px;
+    margin-left: 4%;
+}
+
+body{
+    background-color: black;
+    z-index: -1;
+}
+
+/* Everything regarding the box */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.boton {
+  padding: 22px 44px;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  margin: 12px 6px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 30%;
+  background-color: #FB9D15;
+  color: black;
+  border: 2px solid #555555;
+  font-weight: bold;
+}
+
+.boton:hover {
+  background-color: darkred;
+  color: black;
+}
+
+.boton-night {
+  padding: 11px 22px;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  margin: 6px 3px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 50%;
+  background-color: #FB9D15;
+  color: black;
+  border: 2px solid #555555;
+  font-weight: bold;
+}
+
+.boton-night:hover {
+  background-color: #0A0537;
+  color: white;
+}
+
+.boton-seer {
+    padding: 22px 44px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FB9D15;
+    color: black;
+    border: 2px solid #555555;
+    font-weight: bold;
+    position: absolute;
+    bottom: 25%;
+    left: 45.5%;
+}
+
+.boton-seer:hover {
+  background-color: dodgerblue;
+  color: gold;
+}
+
+.boton-witch {
+    padding: 22px 44px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FB9D15;
+    color: black;
+    border: 2px solid #555555;
+    font-weight: bold;
+    position: absolute;
+    bottom: 22%;
+    left: 45%;
+}
+
+.boton-witch:hover {
+  background-color: papayawhip;
+  color: #FB9D15;
+}
+
+.item-boton-life {
+    grid-column: 1 / span 3;
+    grid-row: 5 / span 1;
+    place-self: center;
+}
+
+.boton-witch-life {
+    padding: 22px 44px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FB9D15;
+    color: black;
+    border: 2px solid #555555;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 7%;
+    margin-top: 5%;
+}
+
+.boton-witch-life:hover {
+  background-color: #000000;
+  color: aqua;
+}
+.item-boton-death {
+    grid-column: 9 / span 3;
+    grid-row: 5 / span 1;
+    place-self: center;
+}
+
+.boton-witch-death {
+    padding: 22px 44px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FB9D15;
+    color: black;
+    border: 2px solid #555555;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 7%;
+    margin-top: 5%;
+}
+
+.boton-witch-death:hover {
+  background-color: black;
+  color: lightgreen;
+}
+
+.boton-night2 {
+    padding: 11px 22px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FB9D15;
+    color: black;
+    border: 2px solid #555555;
+    font-weight: bold;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+.boton-night2:hover {
+  background-color: #0A0537;
+  color: white;
+}
+
+.boton-sleep1 {
+    padding: 22px 44px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FB9D15;
+    color: black;
+    border: 2px solid #555555;
+    font-weight: bold;
+    position: absolute;
+    bottom: 25%;
+    left: 25.5%;
+}
+
+.boton-sleep1:hover {
+  background-color: darkgreen;
+  color: orange;
+}
+
+.boton-sleep2 {
+    padding: 22px 44px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FB9D15;
+    color: black;
+    border: 2px solid #555555;
+    font-weight: bold;
+    position: absolute;
+    bottom: 25%;
+    left: 45%;
+}
+
+.boton-sleep2:hover {
+  background-color: #0A0537;
+  color: white;
+}
+
+.boton-sleep3 {
+    padding: 22px 44px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FB9D15;
+    color: black;
+    border: 2px solid #555555;
+    font-weight: bold;
+    position: absolute;
+    bottom: 25%;
+    left: 65.5%;
+}
+
+.boton-sleep3:hover {
+  background-color: red;
+  color: white;
+}
+/* Regarding the select option */
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  background-color: white;
+  width: 175px;
+}
+
+/* Regarding the form */
+.form-control {
+    text-align: center;
+    /* if you add px, the form is shorter */
+    padding: 8px 64px;
+}
+
+.t {
+  color:#ffffff;
+  text-align: center;
+  background:black;
+  max-width:550px;
+}

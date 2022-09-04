@@ -1,0 +1,348 @@
+p {
+  color: wheat;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+body {
+  background-size: cover;
+}
+/* Everything regarding the box */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Grid format */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(23, 4.34%);
+  grid-template-rows: repeat(21, 4.76%);
+  align-items: stretch;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Regarding the table in the middle */
+.table {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-table {
+  grid-column: 9 / span 8;
+  grid-row: 4 / span 15;
+}
+
+/* Regarding the Button */
+/* More in styles.css */
+.item-boton {
+  grid-column: 11 / span 4;
+  grid-row: 14 / span 3;
+  justify-self: center;
+}
+
+/* Regarding the Button */
+.item-boton-night {
+  grid-column: 20 / span 2;
+  grid-row: 18 / span 3;
+  justify-self: center;
+
+}
+
+/* Regarding the timer */
+.item-timer {
+  grid-column: 19 / span 4;
+  grid-row: 1 / span 2;
+}
+
+.timer {
+  animation: change 600s step-end both;  /* after 8min changes color */
+  text-align: center;
+  display: block;
+  font-size: 100px;
+  margin: 6px 3px;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 5%;
+  object-fit: cover;
+}
+
+@keyframes change {
+  from {color: white}
+  to {color: red}
+}
+
+/* Regarding the Icons */
+.icon {
+  object-fit: contain;
+  width:100%;
+  height: 100%;
+  justify-self: center;
+}
+
+.item-life {
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.item-death {
+  grid-column: 4 / span 2;
+  grid-row: 1 / span 2;
+}
+
+/* Regarding the Votes */
+.item-votes {
+  grid-column: 10 / span 6;
+  grid-row: 6 / span 6;
+}
+
+/* Regarding the Players */
+/* Regarding Player 1 */
+.item-player0 {
+  grid-column: 9 / span 2;
+  grid-row: 3 / span 1;
+  align-self: center;
+}
+
+.item-player0-icon {
+  grid-column: 9 / span 2;
+  grid-row: 1 / span 2;
+}
+
+/* Regarding Player 2 */
+.item-player1 {
+  grid-column: 12 / span 2;
+  grid-row: 3 / span 1;
+  align-self: center;
+}
+
+.item-player1-icon {
+  grid-column: 12 / span 2;
+  grid-row: 1 / span 2;
+}
+
+/* Regarding Player 3 */
+.item-player2 {
+  grid-column: 15 / span 2;
+  grid-row: 3 / span 1;
+  align-self: center;
+}
+
+.item-player2-icon {
+  grid-column: 15 / span 2;
+  grid-row: 1 / span 2;
+}
+
+/* Regarding Player 4 */
+.item-player3 {
+  grid-column: 7 / span 2;
+  grid-row: 6 / span 1;
+  align-self: center;
+}
+
+.item-player3-icon {
+  grid-column: 7 / span 2;
+  grid-row: 4 / span 2;
+}
+
+/* Regarding Player 5 */
+.item-player4 {
+  grid-column: 17 / span 2;
+  grid-row: 6 / span 1;
+  align-self: center;
+}
+
+.item-player4-icon {
+  grid-column: 17 / span 2;
+  grid-row: 4 / span 2;
+}
+
+/* Regarding Player 6 */
+.item-player5 {
+  grid-column: 7 / span 2;
+  grid-row: 10 / span 1;
+  align-self: center;
+}
+
+.item-player5-icon {
+  grid-column: 7 / span 2;
+  grid-row: 8 / span 2;
+}
+
+/* Regarding Player 7 */
+.item-player6 {
+  grid-column: 17 / span 2;
+  grid-row: 10 / span 1;
+  align-self: center;
+}
+
+.item-player6-icon {
+  grid-column: 17 / span 2;
+  grid-row: 8 / span 2;
+}
+
+/* Regarding Player 8 */
+.item-player7{
+  grid-column: 7 / span 2;
+  grid-row: 14 / span 1;
+  align-self: center;
+}
+
+.item-player7-icon {
+  grid-column: 7 / span 2;
+  grid-row: 12 / span 2;
+}
+
+/* Regarding Player 9 */
+.item-player8 {
+  grid-column: 17 / span 2;
+  grid-row: 14 / span 1;
+  align-self: center;
+}
+
+.item-player8-icon {
+  grid-column: 17 / span 2;
+  grid-row: 12 / span 2;
+}
+
+/* Regarding Player 10 */
+.item-player9 {
+  grid-column: 7 / span 2;
+  grid-row: 18 / span 1;
+  align-self: center;
+}
+
+.item-player9-icon {
+  grid-column: 7 / span 2;
+  grid-row: 16 / span 2;
+}
+
+/* Regarding Player 11 */
+.item-player10 {
+  grid-column: 17 / span 2;
+  grid-row: 18 / span 1;
+  align-self: center;
+}
+
+.item-player10-icon {
+  grid-column: 17 / span 2;
+  grid-row: 16 / span 2;
+}
+
+/* Regarding Player 12 */
+.item-player11 {
+  grid-column: 9 / span 2;
+  grid-row: 19 / span 1;
+  align-self: center;
+}
+
+.item-player11-icon {
+  grid-column: 9 / span 2;
+  grid-row: 20 / span 2;
+  margin-bottom: 3%;
+
+}
+
+/* Regarding Player 13 */
+.item-player12 {
+  grid-column: 12 / span 2;
+  grid-row: 19 / span 1;
+  align-self: center;
+}
+
+.item-player12-icon {
+  grid-column: 12 / span 2;
+  grid-row: 20 / span 2;
+  margin-bottom: 3%;
+}
+
+/* Regarding Player 14 */
+.item-player13 {
+  grid-column: 15 / span 2;
+  grid-row: 19 / span 1;
+  align-self: center;
+}
+
+.item-player13-icon {
+  grid-column: 15 / span 2;
+  grid-row: 20 / span 2;
+  margin-bottom: 3%;
+}
+
+/* Regarding Player 15 */
+.item-player14 {
+  grid-column: 3 / span 2;
+  grid-row: 8 / span 1;
+  align-self: center;
+}
+
+.item-player14-icon {
+  grid-column: 3 / span 2;
+  grid-row: 6 / span 2;
+}
+
+/* Regarding Player 16 */
+.item-player15 {
+  grid-column: 3 / span 2;
+  grid-row: 12 / span 1;
+  align-self: center;
+}
+
+.item-player15-icon {
+  grid-column: 3 / span 2;
+  grid-row: 10 / span 2;
+}
+
+/* Regarding Player 17 */
+.item-player16 {
+  grid-column: 3 / span 2;
+  grid-row: 16 / span 1;
+  align-self: center;
+}
+
+.item-player16-icon {
+  grid-column: 3 / span 2;
+  grid-row: 14 / span 2;
+}
+
+/* Regarding Player 18 */
+.item-player17 {
+  grid-column: 21 / span 2;
+  grid-row: 8 / span 1;
+  align-self: center;
+}
+
+.item-player17-icon {
+  grid-column: 21 / span 2;
+  grid-row: 6 / span 2;
+}
+
+/* Regarding Player 19 */
+.item-player18 {
+  grid-column: 21 / span 2;
+  grid-row: 12 / span 1;
+  align-self: center;
+}
+
+.item-player18-icon {
+  grid-column: 21 / span 2;
+  grid-row: 10 / span 2;
+}
+
+/* Regarding Player 20 */
+.item-player19 {
+  grid-column: 21 / span 2;
+  grid-row: 16 / span 1;
+  align-self: center;
+}
+
+.item-player19-icon {
+  grid-column: 21 / span 2;
+  grid-row: 14 / span 2;
+}

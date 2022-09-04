@@ -1,0 +1,35 @@
+{% extends "werewolves/setup_night/setup_night_layout.html" %}
+{% load static %}
+
+{% block innerhead_1 %}
+<!--Block for linking the css-->
+<link href="{% static 'werewolves/setup_night.css' %}" rel="stylesheet">
+{% endblock %}
+{% block innerbody_1 %}
+<div class ="setup_night_font">Werewolves:</div>
+    <form action="" method="post">
+    {% csrf_token %}
+        <div id ="my-select-group">
+        {% for werewolf in nr_werewolves %}
+            <div>
+            <label class="bigger_div">Werewolf {{ werewolf }}:</label>
+            <select class ="select_field" name="werewolf" class="select_field">
+
+            {% for player in players %}
+                <option value="{{ player.name }}">{{ player.name }}</option>
+            {% endfor %}
+            </select>
+            </div>
+        {% endfor %}
+        </div>
+    <button class="boton-setup" type="submit">Continue</button>
+    </form>
+{% endblock %}
+{% block inner_footer %}
+    <script src="https://cdn.jsdelivr.net/npm/select-unique@latest/dist/select-unique.min.js"></script>
+
+    <!-- This removes duplicates in select menus, when you have that id -->
+    <script>
+        new SelectUnique('#my-select-group select');
+    </script>
+{% endblock %}

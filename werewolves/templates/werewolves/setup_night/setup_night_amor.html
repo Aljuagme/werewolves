@@ -1,0 +1,48 @@
+{% extends "werewolves/setup_night/setup_night_layout.html" %}
+{% load static %}
+
+{% block innerhead_1 %}
+<!--Block for linking the css-->
+<link href="{% static 'werewolves/setup_night.css' %}" rel="stylesheet">
+{% endblock %}
+{% block innerbody_1 %}
+<div class ="setup_night_font">Amor</div>
+    <form action="" method="post">
+    {% csrf_token %}
+    <ul>
+        <div>
+        <label class="bigger_div">Amor:</label>
+        <select class ="select_field" name="amor" class="select_field">
+        {% for player in players_without_role %}
+            <option value="{{ player.name }}">{{ player.name }}</option>
+        {% endfor %}
+        </select>
+        </div>
+    <div id="my-select-group">
+        <div>
+        <label class="bigger_div">Lover 1:</label>
+        <select class ="select_field" name="lover" class="select_field">
+        {% for player in players %}
+            <option value="{{ player.name }}">{{ player.name }}</option>
+        {% endfor %}
+        </select>
+        </div>
+        <div>
+        <label class="bigger_div">Lover 2:</label>
+        <select class ="select_field" name="lover" class="select_field">
+        {% for player in players %}
+            <option value="{{ player.name }}">{{ player.name }}</option>
+        {% endfor %}
+        </select>
+        </div>
+    </div>
+    </ul>
+    <button class="boton-setup" type="submit">Continue</button>
+    </form>
+{% endblock %}
+{% block inner_footer %}
+    <script src="https://cdn.jsdelivr.net/npm/select-unique@latest/dist/select-unique.min.js"></script>
+    <script>
+        new SelectUnique('#my-select-group select');
+    </script>
+{% endblock %}

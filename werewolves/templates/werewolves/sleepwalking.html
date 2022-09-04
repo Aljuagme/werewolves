@@ -1,0 +1,42 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+
+    <title>Night</title>
+        <style>
+        body {
+            background-image: url({% static 'images/sleepwalking.jpg' %});
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: 1000px;
+
+        }
+    </style>
+
+{% endblock %}
+{% block body %}
+
+
+
+    <div class="t" style="margin: auto; margin-top: 3%">
+        <h1>How many sleepwalkers?</h1>
+    </div>
+
+    {% if villagers %}
+        <ul>
+            <li> The number of villagers is: {{ villagers }} </li>
+        </ul>
+{% endif %}
+                <form method="get" action="{% url 'werewolves:sleep_1' %}">
+                     <button class="boton-sleep1">1 Villager</button>
+                </form>
+                    <form method="get" action="{% url 'werewolves:werewolves_skill' %}">
+                 <button class="boton-sleep2">Werewolves</button>
+                </form>
+                    <form method="get" action="{% url 'werewolves:sleep_accident' %}">
+                 <button class="boton-sleep3">All Villagers</button>
+                </form>
+{% endblock %}
+</html>

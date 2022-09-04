@@ -1,0 +1,82 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+
+    <title>Night</title>
+        <style>
+        body {
+            background-image: url({% static 'images/seer.jpg' %});
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="item-votes">
+        <form action = "{% url 'werewolves:seer_skill' %}" method="post" >
+            {% csrf_token %}
+
+            <div style="vertical-align: center" class="form-control">
+                <h1 class="t" style="margin: auto">
+                    Reveal identity
+                </h1>
+
+                <select class="custom-select" name = "reveal">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    {% for player in players %}
+                            {% if player not in seer_list and player.role != "seer" %}
+                                <option style="font-weight: bold" value = "{{ player.id }}">{{ player.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div style="text-align: left ">
+                <ul>
+                    {% for p in seer_list %}
+                        {% filter upper %}
+                            {% if p.role == "werewolf" or p.role == "whitewerewolf" %}
+                            <li style="color: red">{{ p.name }} --> "WEREWOLF"</li>
+                            {% else %}
+                            <li>{{ p.name }} --> "VILLAGER"</li>
+                            {% endif %}
+                        {% endfilter %}
+                    {% empty %}
+                        <li>Nothing revealed yet</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div style="background-attachment: fixed">
+                <button class="boton-seer" type="submit">Verify</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+        <div class="item-boton-night">
+            {% if villager %}
+                {% if len_villagers > 1 %}
+                <form method="get" action="{% url 'werewolves:sleep_walking' %}">
+                    <button class="boton-night2">Sleep Walking</button>
+                </form>
+                    {% else %}
+                    <form method="get" action="{% url 'werewolves:werewolves_skill' %}">
+                 <button class="boton-night2">Werewolves</button>
+                </form>
+                    {% endif %}
+
+            {% else %}
+                <form method="get" action="{% url 'werewolves:werewolves_skill' %}">
+                 <button class="boton-night2">Werewolves</button>
+                </form>
+            {% endif %}
+        </div>
+
+{% endblock %}

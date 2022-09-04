@@ -1,0 +1,101 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+
+    <title>Night</title>
+    <link href="{% static 'werewolves/witch.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="grid-container-witch">
+        <div class="item-lab" >
+            <img alt="Laboratory" class="lab" src="{% static 'images/lab_witch.jpg' %}">
+        </div>
+
+        <div class="title-witch">
+            <h1 class="t" style="margin: auto; margin-top: 2%">
+                Witch sees all the victims
+            </h1>
+        </div>
+
+        {% if len_victims < 2 %}
+        <div class="victimas">
+        {% elif len_victims == 2 %}
+        <div class="victimas2">
+        {% else %}
+        <div class="victimas3">
+        {% endif %}
+
+        <ul>
+            {% for v in victims %}
+                {% filter upper %}
+                    <li style="display: inline; margin: 3%">{{ v.name }}</li>
+                {% endfilter %}
+            {% empty %}
+                <li style="display: inline">No one died this turn</li>
+            {% endfor %}
+        </ul>
+        </div>
+
+    {% if witch.health_potion %}
+                <div class="lab-life">
+                <form action="{% url 'werewolves:witch_skill' %}" method="post">
+                {% csrf_token %}
+                    <h2 class="t">
+                        Do you want to use your health potion?
+                    </h2>
+                    <select class="custom-health" name="heal">
+                        <option value="" selected disabled hidden>Choose here</option>
+                        {% for victim in victims %}
+                            <option style="font-weight: bold" value = "{{ victim.id }}">{{ victim.name }}</option>
+                        {% endfor %}
+                    </select>
+                <div>
+                    <button class="boton-witch-life" type="submit">Heal</button>
+                </div>
+                </form>
+                </div>
+    {% endif %}
+    {% if witch.death_potion %}
+
+                <div class="lab-death">
+                <form action="{% url 'werewolves:witch_skill' %}" method="post">
+                {% csrf_token %}
+                    <h2 class="t">
+                        Do you want to use your death potion?
+                    </h2>
+                    <select class="custom-death" name="die">
+                        <option value="" selected disabled hidden>Choose here</option>
+                        {% for player in players %}
+                            {% if player not in victims %}
+                            <option style="font-weight: bold" value = "{{ player.id }}">{{ player.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+
+                    <div class="item-boton-death">
+                        <button class="boton-witch-death" type="submit">Poison</button>
+                    </div>
+                </form>
+
+                </div>
+    {% endif %}
+
+            <div class="item-votes">
+        <form action = "{% url 'werewolves:day' %}" method="post" >
+            {% csrf_token %}
+
+                <div style="background-attachment: fixed">
+                    <button class="boton-witch" type="submit">Day</button>
+                </div>
+                    </form>
+    </div>
+        </div>
+        </div>
+    </div>
+
+
+{% endblock %}

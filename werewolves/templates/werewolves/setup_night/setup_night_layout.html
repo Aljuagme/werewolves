@@ -1,0 +1,21 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+
+{% block head %}
+    <link href="{% static 'werewolves/setup_night_layout.css' %}" rel="stylesheet">
+    {% block innerhead_1 %}
+    {% endblock %}
+{% endblock %}
+
+
+{% block body %}
+    <h2 style="margin-bottom: 2%">WELCOME TO WEREWOLVES - setup night page</h2>
+    {% block innerbody_1 %}
+    {% endblock %}
+{% endblock %}
+
+{% block footer %}
+    {% block inner_footer %}
+    {% endblock %}
+{% endblock %}

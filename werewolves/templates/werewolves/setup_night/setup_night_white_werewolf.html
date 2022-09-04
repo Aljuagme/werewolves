@@ -1,0 +1,26 @@
+{% extends "werewolves/setup_night/setup_night_layout.html" %}
+{% load static %}
+
+{% block innerhead_1 %}
+<!--Block for linking the css-->
+<link href="{% static 'werewolves/setup_night.css' %}" rel="stylesheet">
+{% endblock %}
+{% block innerbody_1 %}
+<div class ="setup_night_font">White Werewolf</div>
+    <form action="" method="post">
+    {% csrf_token %}
+    <ul>
+        <div>
+        <label class="bigger_div">White Werewolf:</label>
+        <select class ="select_field" name="whitewerewolf" class="select_field">
+        {% for player in players %}
+            <option value="{{ player.name }}">{{ player.name }}</option>
+        {% endfor %}
+        </select>
+        </div>
+
+
+    </ul>
+    <button class="boton-setup" type="submit">Continue</button>
+    </form>
+{% endblock %}

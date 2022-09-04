@@ -1,0 +1,39 @@
+{% extends "werewolves/setup_night/setup_night_layout.html" %}
+{% load static %}
+
+{% block innerhead_1 %}
+<!--Block for linking the css-->
+    <link href="{% static 'werewolves/setup_night.css' %}" rel="stylesheet">
+
+{% endblock %}
+{% block innerbody_1 %}
+    <div class = "setup_night_font">
+        Number of players: {{ players|length }}
+    </div>
+    <form action="" method="post">
+    {% csrf_token %}
+    <ul class = role_list>
+        <li class="role_list_element">
+            <div class="role_div">Werewolves:</div><input type="number" min="1" max="{{ max_werewolves }}" value="{{ werewolves }}" name = "werewolf" class ="role_input">
+        </li>
+        <li class="role_list_element">
+            <div class="role_div">White Werewolf:</div><input type="number" min="0" max="1" value="{{ whitewerewolf }}" name = "whitewerewolf" class ="role_input">
+        </li>
+        <li class="role_list_element">
+            <div class="role_div">Seer:</div><input type="number" min="0" max="1" value="{{ seer }}" name = "seer" class ="role_input">
+        </li>
+        <li class="role_list_element">
+            <div class="role_div">Witch:</div><input type="number" min="0" max="1" value="{{ witch }}" name = "witch" class ="role_input">
+        </li>
+        <li class="role_list_element">
+            <div class="role_div">Hunter:</div><input type="number" min="0" max="1" value="{{ hunter }}" name = "hunter" class ="role_input">
+        </li>
+        <li class="role_list_element">
+            <div class="role_div">Amor:</div><input type="number" min="0" max="1" value="{{ amor }}" name = "amor" class ="role_input">
+        </li>
+    </ul>
+
+    <button class="boton-setup" type="submit">Assign roles</button>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Victory Villagers</title>
+    <link href="{% static 'werewolves/lovers.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="grid-container-pic">
+            <a class="item-win" href="{% url 'werewolves:setup' %}">
+            <div>
+                <button class="boton-win" type="submit">Leave forest</button>
+            </div>
+        </a>
+        <div class="item-pic">
+            <img class="pic" alt="lovers" src="{% static 'images/win_villagers2.jpg' %}">
+        </div>
+        <div class="title-lovers">
+            <p style="z-index: 10; color: white; font-size: 36px">
+                <i>... and they danced all night long, for the reign of the werewolves was over.</i></p>
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,98 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+
+{% block head %}
+
+    <title>Day</title>
+    <link href="{% static 'werewolves/day.css' %}" rel="stylesheet">
+    <script src="{% static 'JS/day.js' %}"></script>
+
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="grid-container">
+        <div class="item-table" >
+            <img alt="table" class="table" src="{% static 'images/wood.jpg' %}">
+        </div>
+
+        <div class ="item-timer">
+            <div class="timer">
+                <span id="minutes"></span>:<span id="seconds"></span>
+            </div>
+        </div>
+
+        <!-- Here comes the for loop iterating on the list of players -->
+        <!-- For the name of the player -->
+        {% for player in players %}
+
+            <!-- Witch's potions -->
+{#            {% if player.role == "witch" %}#}
+{#                {% if not player.dead %}#}
+{#                    {% if player.health_potion %}#}
+{#                        <div class="item-life">#}
+{#                            <img class="icon" alt="Health Potion" src="{% static 'images/life_potion.jpg' %}">#}
+{#                        </div>#}
+{##}
+{#                    {% endif %}#}
+{#                    {% if player.death_potion %}#}
+{##}
+{#                        <div class="item-death">#}
+{#                            <img class="icon" alt="Death Potion" src="{% static 'images/death_potion.jpg' %}">#}
+{#                        </div>#}
+{##}
+{#                    {% endif %}#}
+{#                {% endif %}#}
+{#            {% endif %}#}
+
+            {% if player.dead %}
+                <div class="item-player{{ player.id }}">
+                    <p style="color: red"><strike>{{ player.name }}</strike></p>
+                </div>
+            {% else %}
+                <div class="item-player{{ player.id }}">
+                    <p>{{ player.name }}</p>
+                </div>
+            {% endif %}
+
+            <!-- For the Icon of the player -->
+            {% if player.dead %}
+            <div class="item-player{{ player.id }}-icon">
+                <img class="icon" alt="{{ player.role }}" src="{% static player.imgPath %}">
+            </div>
+
+            {% endif %}
+        {% endfor %}
+
+        <div class="item-votes">
+            <form action = "{% url 'werewolves:day' %}" method="post" >
+                {% csrf_token %}
+
+                <div class="form-control">
+                    <h1 class = "t">Player to kill: </h1>
+                    <select class="custom-select" name = "victim">
+                        <option value="" selected disabled hidden>Choose here</option>
+                        {% for player in players %}
+                            {% if not player.dead %}
+                        <option style="font-weight: bold" value = "{{ player.id }}">{{ player.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="item-boton">
+                    <button class="boton" type="submit">Verify</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="item-boton-night">
+            <form method="get" action="{% url 'werewolves:night' %}">
+                <button class="boton-night">End Day</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

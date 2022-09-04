@@ -1,0 +1,42 @@
+{% extends "werewolves/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Hunter</title>
+    <link href="{% static 'werewolves/day.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background-image: url({% static 'images/hunter_dead.jpg' %});
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="item-votes">
+            <form action = "{% url 'werewolves:day' %}" method="post" >
+                {% csrf_token %}
+
+                <div style="vertical-align: center" class="form-control">
+                    <h1 class="t" style="margin: auto">
+                        Hunter, you may take one with you</h1>
+
+                    <select class="custom-select" name = "victim">
+                        <option value="" selected disabled hidden>Choose here</option>
+                        {% for player in players %}
+                            {% if player not in werewolves_victim %}
+                        <option style="font-weight: bold" value = "{{ player.id }}">{{ player.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="item-boton">
+                    <button class="boton" type="submit">Verify</button>
+                </div>
+
+            </form>
+        </div>
+{% endblock %}
