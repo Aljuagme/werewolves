@@ -15,3 +15,9 @@ Say goodbye to messy paper tracking and confusion! This app simplifies the game 
 
 - User-Friendly Interface: Intuitive design for quick updates and decisions during gameplay.
 
+## Screenshots
+
+![Intro](se/imgs_readme/intro.png)
+![Table](se/imgs_readme/table.png)
+![Witch](se/imgs_readme/witch.png)
+![End](se/imgs_readme/end.png)
